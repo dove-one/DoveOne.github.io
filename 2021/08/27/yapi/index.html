@@ -14,7 +14,7 @@
 
 
 
-<title>yapi centos部署 | 鸽子壹</title>
+<title>yapi centos部署 | DoveOne</title>
 
 
 
@@ -63,7 +63,7 @@
       <div class="site-brand-container">
         <a href="/">
           
-            鸽子壹.
+            DevoOne.
           
         </a>
       </div>
@@ -126,24 +126,24 @@
     </div>
 </div>
     <div class="post-content">
-    <h1 id="项目场景："><a href="#项目场景：" class="headerlink" title="项目场景："></a>项目场景：</h1><p>服务器：腾讯云centos</p>
+    <h1><span id="项目场景">项目场景：</span></h1><p>服务器：腾讯云centos</p>
 <p>node：12.13.1 </p>
 <p>npm：6.12.1</p>
 <p>docker：20.10.6</p>
 <p>最近在学习yapi文档管理工具，在docker部署时按视频和教程来来回回折腾了一天</p>
 <p>记录整体步骤和问题解决</p>
 <hr>
-<h1 id="部署步骤："><a href="#部署步骤：" class="headerlink" title="部署步骤："></a>部署步骤：</h1><h3 id="1-安装docker"><a href="#1-安装docker" class="headerlink" title="1.安装docker"></a>1.安装docker</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/centos-docker-install.html">CentOS Docker 安装  | 菜鸟教程</a></p>
-<h3 id="2-安装node"><a href="#2-安装node" class="headerlink" title="2.安装node"></a>2.安装node</h3><p>（这里使用的是12版本的，如果使用14在9090的平台部署中会出现node版本问题导致部署失败，要重装再来OTZ）<strong>：</strong> </p>
+<h1><span id="部署步骤">部署步骤：</span></h1><h3><span id="1安装docker">1.安装docker</span></h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/centos-docker-install.html">CentOS Docker 安装  | 菜鸟教程</a></p>
+<h3><span id="2安装node">2.安装node</span></h3><p>（这里使用的是12版本的，如果使用14在9090的平台部署中会出现node版本问题导致部署失败，要重装再来OTZ）<strong>：</strong> </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">（1）下载：</span><br><span class="line">   wget https://cdn.npm.taobao.org/dist/node/v12.13.1/node-v12.13.1-linux-x64.tar.xz</span><br><span class="line">（2）解压:</span><br><span class="line">   tar -xvf node-v12.13.1-linux-x64.tar.xz</span><br><span class="line">（3）建立软连接：</span><br><span class="line">   ln -/root/node-v12.13.1-linux-x64/bin/node /usr/bin/node</span><br><span class="line">   ln -/root/node-v12.13.1-linux-x64/bin/npm /usr/bin/npm</span><br><span class="line"> (4) 测试</span><br><span class="line">   node -v</span><br><span class="line">   npm -v         </span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="3-docker安装mongo"><a href="#3-docker安装mongo" class="headerlink" title="3.docker安装mongo"></a>3.docker安装mongo</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-install-mongodb.html">Docker 安装 MongoDB | 菜鸟教程</a></p>
+<h3><span id="3docker安装mongo">3.docker安装mongo</span></h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-install-mongodb.html">Docker 安装 MongoDB | 菜鸟教程</a></p>
 <p>按教程一步一步来就行</p>
-<h3 id="4-docker安装yapi"><a href="#4-docker安装yapi" class="headerlink" title="4.docker安装yapi"></a>4.docker安装yapi</h3><p>（这里是真的巨坑，最开始使用的docker-compose方案推荐的3种居然一个都用不了</p>
+<h3><span id="4docker安装yapi">4.docker安装yapi</span></h3><p>（这里是真的巨坑，最开始使用的docker-compose方案推荐的3种居然一个都用不了</p>
 <p>然后按官方文档的来，操作到yapi server时</p>
 <p><img src="https://img-blog.csdnimg.cn/20210827093911169.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6bi95a2Q6IOl,size_13,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
 <p>报错：-bash: yapi: command not found </p>
@@ -156,7 +156,7 @@
 <p>接着查看账号密码及数据库名</p>
 <p>（默认的yapi yapi123456 yapi）</p>
 <p> &#x2F;root&#x2F;docker-yapi&#x2F;mongo-conf&#x2F;init-mongo.js</p>
-<h3 id="5-yapi平台部署"><a href="#5-yapi平台部署" class="headerlink" title="5.yapi平台部署"></a>5.yapi平台部署</h3><p>9090端口</p>
+<h3><span id="5yapi平台部署">5.yapi平台部署</span></h3><p>9090端口</p>
 <p><img src="https://img-blog.csdnimg.cn/20210827100036403.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6bi95a2Q6IOl,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
 <p>部署出现的两个问题</p>
 <p>1.版本问题，我开始使用的node14卸载重装node12解决</p>
@@ -164,7 +164,7 @@
 <p><img src="https://img-blog.csdnimg.cn/20210827100746645.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6bi95a2Q6IOl,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
 <p> 成功部署后</p>
 <p><img src="https://img-blog.csdnimg.cn/2021082710065021.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6bi95a2Q6IOl,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
-<h3 id="6-启动服务"><a href="#6-启动服务" class="headerlink" title="6.启动服务"></a>6.启动服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /root/docker-yapi/my-yapi</span><br><span class="line">node vendors/server/app.js</span><br></pre></td></tr></table></figure>
+<h3><span id="6启动服务">6.启动服务</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /root/docker-yapi/my-yapi</span><br><span class="line">node vendors/server/app.js</span><br></pre></td></tr></table></figure>
 
 
 
@@ -205,6 +205,7 @@
 </div>
      
   
+
 </article>
         </div>
       </div>
